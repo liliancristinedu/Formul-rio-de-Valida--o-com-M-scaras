@@ -12,3 +12,28 @@ const isMaiorDeIdade = (dataNascimentoString) => {
     const dataNascimento = new Date(ano, mes - 1, dia);
     return dataNascimento <= dataDezoitoAnosAtras;
 };
+
+form.addEventListener("submit", e => {
+    e.preventDefault();
+    if (nome.value.trim().length < 3) {
+        alert("O nome deve ter pelo menos 3 caracteres.");
+        return;
+    }
+    if (!email.value.includes("@")) {
+        alert("Digite um e-mail válido.");
+        return;
+    }
+    if (telefone.value.replace(/\D/g, "").length < 10) {
+        alert("Digite um telefone válido.");
+        return;
+    }
+    if (cpf.value.replace(/\D/g, "").length !== 11) {
+        alert("Digite um CPF válido com 11 números.");
+        return;
+    }
+        if (!isMaiorDeIdade(datadenascimento.value)) {
+        alert("Você precisa ser maior de 18 anos para se cadastrar.");
+        return;
+    }
+    alert("Formulário enviado com sucesso!");
+}); 
