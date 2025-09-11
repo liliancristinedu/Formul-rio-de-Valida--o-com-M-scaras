@@ -36,4 +36,12 @@ form.addEventListener("submit", e => {
         return;
     }
     alert("Formulário enviado com sucesso!");
-}); 
+});
+
+telefone.addEventListener("input", e => {
+    let valor = e.target.value.replace(/\D/g, "");
+    valor = valor.length <= 10 ?
+    valor.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3") :
+    valor.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+    e.target.value = valor;
+});
