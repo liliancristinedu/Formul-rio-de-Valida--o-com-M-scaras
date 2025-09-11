@@ -45,3 +45,10 @@ telefone.addEventListener("input", e => {
     valor.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
     e.target.value = valor;
 });
+
+cpf.addEventListener("input", e => {
+    let valor = e.target.value.replace(/\D/g, "");
+    valor = valor.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/,
+    "$1.$2.$3-$4");
+    e.target.value = valor;
+});
